@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="span12">
+        <div id="modal" class="modal hide fade">
+            <div class="modal-header">
+                <h3>Oklahoma Tornados Mission tutorial</h3>
+            </div>
+            <div id="0" class="modal-body" style="display:none">
+                <p><strong>Hi!</strong> Thanks a lot for helping us in classifying the tweets collected on the Moore, OK Tornados.
+               </p> 
+            </div>
+            <div id="1" class="modal-body" style="display:none">
+                <p>The application is really simple. It loads a tweet and an instagram picture and asks you to identify the damage in the picture.</p>
+                <p>There are 3 possible choices:
+                <ul>
+                    <li><strong><i class="icon-severe"></i> Severe Damage:</strong> Picture shows severe damage, leveled buildings, major infrastructure damage, destroyed vehicles, etc.</li>
+                    <li><strong><i class="icon-mild"></i> Mild Damage:</strong> Picture shows mild damage, broken windows, felled trees, damaged vehicles, minor infrastructure damage. </li>
+                    <li><strong><i class="icon-none"></i> No damage:</strong> Either the picture shows an area with no damage at all, or the picture is irrelevant or unrelated.</li> 
+                </ul>
+                </p>
+                <p>The text of the tweet is provided and will be displayed above the picture. If you are unsure whether the picture is showing tornado damage, the tweet might provide useful information.</p>
+                <p>That's all there is to it. As soon as you click on one of the three choices, you will be shown the next picture. Your progress is displayed below the picture. If you want to keep track of your progress, make sure to register and log in.</p>
+                <p>Thanks again for helping out!</p>
+            </div>
+            <div class="modal-footer">
+                <a id="prevBtn" href="#" onclick="showStep('prev')" class="btn">Previous</a>
+                <a id="nextBtn" href="#" onclick="showStep('next')" class="btn btn-success">Next</a>
+                <a id="startContrib" href="../oklahomacityTornado/newtask" class="btn btn-primary" style="display:none"><i class="icon-thumbs-up"></i> Start classifying!</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var step = -1;
+    function showStep(action) {
+        $("#" + step).hide();
+        if (action == 'next') {
+            step = step + 1;
+        }
+        if (action == 'prev') {
+            step = step - 1;
+        }
+        if (step == 0) {
+            $("#prevBtn").hide();
+        }
+        else {
+            $("#prevBtn").show();
+        }
+
+        if (step == 1 ) {
+            $("#nextBtn").hide();
+            $("#startContrib").show();
+        }
+        $("#" + step).show();
+    }
+
+    showStep('next');
+    $("#modal").modal('show');
+</script>
