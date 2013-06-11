@@ -16,6 +16,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with PyBOSSA.  If not, see <http://www.gnu.org/licenses/>.
 
+
+
+#These are the things you need to change when creating a new task
+
 import urllib
 import urllib2
 import json
@@ -42,7 +46,6 @@ def task_formatter(app_config, row, n_answers):
     # row[4] = lat
     # row[5] = lon
     # row[6] = url
-    # row[7] = imgurl
 
     info = dict(question=app_config['question'],
                 n_answers=int(n_answers),
@@ -52,8 +55,7 @@ def task_formatter(app_config, row, n_answers):
                 author = row[3],
                 lat = row[4],
                 lon = row[5],
-                url = row[6],
-                imgurl = row[7]
+                videourl = row[6],
                 )
 
     return info
@@ -142,7 +144,7 @@ if __name__ == "__main__":
         app.info['tutorial'] = open('tutorial.html').read()
 
         pbclient.update_app(app)
-        with open('tornadoInstagrams2.csv', 'rb') as csvfile:
+        with open('tornadoVideos.csv', 'rb') as csvfile:
             csvreader = csv.reader(csvfile, delimiter=',')
             # Each row has the following format
             # tweetid,
@@ -151,8 +153,7 @@ if __name__ == "__main__":
             # author
             # lat
             # lon
-            # url
-            # imgurl
+            # videourl
             for row in csvreader:
                 if row[0] !='tweetid':
                     task_info = task_formatter(app_config, row, options.n_answers)
@@ -161,7 +162,7 @@ if __name__ == "__main__":
         app = pbclient.find_app(short_name=app_config['short_name'])[0]
         if options.add_more_tasks:
             import csv
-            with open('tornadoInstagrams2.csv', 'rb') as csvfile:
+            with open('tornadoVideos.csv', 'rb') as csvfile:
                 csvreader = csv.reader(csvfile, delimiter=',')
                 # Each row has the following format
                 # tweetid,
@@ -170,8 +171,7 @@ if __name__ == "__main__":
                 # author
                 # lat
                 # lon
-                # url
-                # imgurl
+                # videourl
                 for row in csvreader:
                     if row[0] !='tweetid': #if the first part of the row is not named exactly tweetid, it will save the header row.
                         task_info = task_formatter(app_config, row, options.n_answers)

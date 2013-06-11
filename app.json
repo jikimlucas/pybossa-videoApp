@@ -1,7 +1,7 @@
 {
-    "name": "Oklahoma City Tornado Damage",
-    "short_name": "oklahomacityTornado",
-    "thumbnail": "http://farm7.staticflickr.com/6008/5953980175_ec9e9680fa_q.jpg",
-    "description": "Identified Tornado-Damaged Areas in Oklahoma City",
-    "question": "Please tag the following pictures based on the category or categories that best describes the pictures included in the tweet"
+    "name": "May 2013 Oklahoma Tornado Damage",
+    "short_name": "okTornadoVideo",
+    "thumbnail": "http://i.imgur.com/zniDjfx.jpg",
+    "description": "Identify Videos of Tornado-Damaged Areas in Oklahoma",
+    "question": "Please tag the following videos based on the amount of damage shown in the video."
 }
